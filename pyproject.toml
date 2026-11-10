@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ncrf-reproducible"
+version = "0.1.0"
+description = "Controlled phase-field forecasting: NCRF, matched baselines and component ablations"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "torch>=2.5,<3"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+plots = ["matplotlib>=3.8"]
+simulation = ["scipy>=1.11", "pydantic>=1.10,<3", "numba>=0.57", "matplotlib>=3.8"]
+fno = ["tensorly==0.9.0", "tensorly-torch==0.5.0", "opt-einsum==3.4.0", "scipy>=1.11", "matplotlib>=3.8", "h5py>=3.9", "requests>=2.31"]
+
+[project.scripts]
+ncrf = "ncrf.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"

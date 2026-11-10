@@ -1,0 +1,1 @@
+{"method":"generic_update", "category":"ablation", "paper_label":"C", "description":"Replace face-flux divergence by fixed-gain zero-mean mobility*q; no new convolution head"}

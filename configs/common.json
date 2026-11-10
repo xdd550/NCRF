@@ -1,0 +1,40 @@
+{
+  "schema": "ncrf_reorganized_v1",
+  "input_steps": 10,
+  "image_size": 128,
+  "seeds": [20261002, 20261003, 20261004],
+  "training": {
+    "batch_size": 2,
+    "learning_rate": 0.0002,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "checkpoint_interval": 25,
+    "amp_initial_scale": 1024.0,
+    "continuation_seed_offset": 31000,
+    "max_consecutive_skips": 10,
+    "max_stage_skip_fraction": 0.01,
+    "stages": [
+      {"phase":"parent", "stage":0, "horizon":10, "updates":200},
+      {"phase":"parent", "stage":1, "horizon":20, "updates":300},
+      {"phase":"parent", "stage":2, "horizon":50, "updates":450},
+      {"phase":"parent", "stage":3, "horizon":90, "updates":700},
+      {"phase":"continuation", "stage":0, "horizon":50, "updates":450},
+      {"phase":"continuation", "stage":1, "horizon":90, "updates":700}
+    ]
+  },
+  "loss": {
+    "gradient_weight":0.10, "interface_weight":0.08,
+    "coarse_weight":0.35, "mean_weight":0.20,
+    "mean_tolerance":0.002, "late_frame_weight":2.5,
+    "coarse_pool":4, "interface_registration_max_weight":0.0
+  },
+  "evaluation": {"horizons":[10,20,50,90], "window_start":0, "batch_size":1, "precision":"fp32", "checkpoint":"final_fixed_budget"},
+  "data": {
+    "root_env":"NCRF_DATA_ROOT",
+    "manifest":"vch_v3_manifest.json",
+    "frozen_manifest_sha256":"99fc4e12acb15db8d907609c8740f25bce2a5d0ffa62dfd73b70b2830af7953d",
+    "metadata":"vch_v3_trajectory_metadata.json",
+    "frozen_metadata_sha256":"6192874d96b2010a9b947dac61fddf9e08147c0b063d431abaab75302343bf6e",
+    "expected_counts":{"train":840,"valid":180,"test":180}
+  }
+}

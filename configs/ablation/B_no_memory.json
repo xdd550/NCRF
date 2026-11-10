@@ -1,0 +1,1 @@
+{"method":"no_memory", "category":"ablation", "paper_label":"B", "description":"Remove dedicated control memory only; retain history encoders and recurrent states"}

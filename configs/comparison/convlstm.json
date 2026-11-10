@@ -1,0 +1,1 @@
+{"method":"convlstm", "category":"comparison", "description":"Matched ConvLSTM with historical state initialization", "expected_parameters":169321}

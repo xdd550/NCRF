@@ -1,0 +1,1 @@
+{"method":"single_scale", "category":"ablation", "paper_label":"D", "description":"Remove coarse path; use nine fine residual blocks for matched capacity"}
