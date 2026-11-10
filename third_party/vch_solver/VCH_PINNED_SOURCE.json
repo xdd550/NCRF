@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/Tejasvanvekar/Sparse-optimal-control-of-Viscous-Chan-hilliard-via-Gradient-descent--1D-2D",
+  "pinned_commit": "0f46a5f23412da1dc23208d20f2414f35656e587",
+  "forward_solver_sha256": "a885d407b2438a5bf91c981f13b9383fcf5e55b20317358fc1de3e90bc0baf42",
+  "config_sha256": "06e4a4a57ad01fd98d594a8ab5b9767b8bac987f312622eb4e3f71164cc05f39"
+}
